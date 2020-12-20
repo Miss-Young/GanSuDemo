@@ -76,6 +76,9 @@ public class Test {
         System.out.println("...........");
         System.out.println("...........");
         System.out.println("...........");
+        System.out.println("另一个测试，怎么样？");
+        System.out.println("...........");
+        System.out.println("...........");
 
     }
 
