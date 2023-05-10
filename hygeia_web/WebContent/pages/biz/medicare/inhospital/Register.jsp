@@ -41,26 +41,26 @@
 		<powersi:panelbox key="查询条件">
 			<powersi:panelbox-toolbar>
 				<!--  【NTS20050800118】电子凭证动态库开发 唤醒扫码机 by 钟声 20200505 -->
-                <div id="operFlag">
-                    <td>电子凭证</td>
-					<!-- 【NTS20052500228】使用支付宝设备点击二维码获取人员信息时，
-                        只需要操作人员选择二维码还是刷脸的形式直接唤醒设备进行扫二维码或刷脸操作。
-                        不需要参保人员在支付宝设备上进行选择。 龚喜洋  2020/05/26 -->
-					<select id="transType" class="select" onchange="" style="width:100px;">
-						<option value="0" selected="" style="width: 50px">微信解码</option>
-						<option value="1" style="width: 50px" selected>支付宝解码</option>
-						<option value="2" style="width: 50px" >支付宝刷脸</option>
-					</select>
-                </div>&nbsp;
-                <powersi:button id="btnVoucher" label="获取电子凭证" onclick="callScanMachine()" disabled="false" />
-                <!--  end  -->	
-				<powersi:button id="readele_btn" key="扫码" />
+<%--                <div id="operFlag">--%>
+<%--                    <td>电子凭证</td>--%>
+<%--					<!-- 【NTS20052500228】使用支付宝设备点击二维码获取人员信息时，--%>
+<%--                        只需要操作人员选择二维码还是刷脸的形式直接唤醒设备进行扫二维码或刷脸操作。--%>
+<%--                        不需要参保人员在支付宝设备上进行选择。 龚喜洋  2020/05/26 -->--%>
+<%--					<select id="transType" class="select" onchange="" style="width:100px;">--%>
+<%--						<option value="0" selected="" style="width: 50px">微信解码</option>--%>
+<%--						<option value="1" style="width: 50px" selected>支付宝解码</option>--%>
+<%--						<option value="2" style="width: 50px" >支付宝刷脸</option>--%>
+<%--					</select>--%>
+<%--                </div>&nbsp;--%>
+<%--                <powersi:button id="btnVoucher" label="获取电子凭证" onclick="callScanMachine()" disabled="false" />--%>
+<%--                <!--  end  -->	--%>
+<%--				<powersi:button id="readele_btn" key="扫码" />--%>
 				<powersi:button id="btSaveRegister" label="保存登记" key="button_save_register" 
 					onclick="saveRegister()" />
-				<powersi:button id="btFundStatusQuery" label="基金状态" key="button_query"
-					onclick="fundStatusQuery()" />
-				<powersi:button id="btcumulative" label="查询累计" key="button_query"
-					onclick="cumulativeQuery()" />
+<%--				<powersi:button id="btFundStatusQuery" label="基金状态" key="button_query"--%>
+<%--					onclick="fundStatusQuery()" />--%>
+<%--				<powersi:button id="btcumulative" label="查询累计" key="button_query"--%>
+<%--					onclick="cumulativeQuery()" />--%>
 				<powersi:button id="btRegisterReset" label="重置" key="button_reset"
 					onclick="resetpage()" />
 				<powersi:reset id="btReset" label="重置界面_hi" cssStyle="display:none;" />
@@ -433,11 +433,11 @@
 				$("#querystring").val(querystring);
 				$("#argName").val(argName);
 				$("#argName").change();
- 				if('aac002'==argName){//如果是身份证获取人员信息，需先校验身份信息
- 					checkIcCard(querystring);
- 				}else{
+ 				// if('aac002'==argName){//如果是身份证获取人员信息，需先校验身份信息
+ 				// 	checkIcCard(querystring);
+ 				// }else{
 					getPerson(querystring);
- 				}
+ 				// }
 			}
 		}
 
@@ -480,13 +480,14 @@
 									$("#" + key).val(value);
 								}
 								if(key=="bka888_name"){
+								    $("#bka888_name").val("正常");
 									//alert(JSON.stringify(json.data));
 									//return;
-									if(value!="正常") {
-										//TS19051400133 结算云（医院端）-  （门诊业务管理、住院业务管理、生育住院管理、家庭病床管理、异地就医管理）-  
-										//办业务读卡后，如果此人的基金是冻结状态，则弹出一个提示框提示一下这个人基金冻结 cj 20190515
-										popupAlert("您好!此参保人基金冻结状态为【已冻结】,将不能进行基金报销,请知悉!");
-									}
+									// if(value!="正常") {
+									// 	//TS19051400133 结算云（医院端）-  （门诊业务管理、住院业务管理、生育住院管理、家庭病床管理、异地就医管理）-
+									// 	//办业务读卡后，如果此人的基金是冻结状态，则弹出一个提示框提示一下这个人基金冻结 cj 20190515
+									// 	popupAlert("您好!此参保人基金冻结状态为【已冻结】,将不能进行基金报销,请知悉!");
+									// }
 								}
 							});
 						}

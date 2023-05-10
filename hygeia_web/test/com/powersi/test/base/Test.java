@@ -54,14 +54,12 @@ public class Test {
 //        String str = "API鎵ц\uE511锛氭湇鍔℃墽琛屽彂鐢熷紓甯革紝閿欒\uE1E4鍙� API2715 淇℃伅锛�: 灏辫瘖鐧昏\uE187鏃跺彇浜哄憳淇℃伅鍑洪敊";
 //        System.out.println(new String(str.getBytes("gbk"),"utf-8"));
 
-
-
-
         String reg = "(?!A0301)^(A01|A02|A03).*?";
         System.out.println("A012010".matches(reg));
         System.out.println("2A023".matches(reg));
         System.out.println("A02323".matches(reg));
         System.out.println("A04323".matches(reg));
+
         System.out.println("A031".matches(reg));
         System.out.println("A0301".matches(reg));
 
@@ -79,6 +77,7 @@ public class Test {
         System.out.println("另一个测试，怎么样？");
         System.out.println("...........");
         System.out.println("...........");
+
 
     }
 
